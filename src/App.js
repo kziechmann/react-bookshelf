@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Cart from './components/Cart';
 import './App.css';
 
 class App extends Component {
@@ -19,7 +20,9 @@ class App extends Component {
   }
 
   render() {
-    return <div>{JSON.stringify(this.state)}</div>
+    return (<div>
+                  <Cart books={this.state}/>
+            </div>)
   }
 
 }
