@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Cart from './components/Cart';
+import BookList from './components/BookList';
 import './App.css';
 
 class App extends Component {
@@ -21,7 +21,7 @@ class App extends Component {
 
   render() {
     return (<div>
-                  <Cart books={this.state}/>
+                  <BookList books={this.state}/>
             </div>)
   }
 
