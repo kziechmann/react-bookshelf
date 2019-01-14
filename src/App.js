@@ -33,6 +33,12 @@ class App extends Component {
     this.setState(newState)
   }
 
+  searchBooks = (event) => {
+    const newState = {...this.state}
+    newState.books[event.target.id-1].inCart = false
+    this.setState(newState)
+  }
+
   render() {
     return (<div className="row">
               <div className="col-9">
