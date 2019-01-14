@@ -18,6 +18,7 @@ class App extends Component {
     })
     const books = await response.json()
     const newState = {books:[...books]}
+    newState['searchText'] = ""
     this.setState(newState)
   }
 
@@ -35,15 +36,16 @@ class App extends Component {
 
   searchBooks = (event) => {
     const newState = {...this.state}
-    newState.books[event.target.id-1].inCart = false
+    newState['searchText'] = event.target.value
+    console.log(event.target.value)
     this.setState(newState)
   }
 
   render() {
     return (<div className="row">
               <div className="col-9">
-                    <SearchBar />
-                    <BookList books={this.state.books} addItemToCart={this.addItemToCart}/>
+                    <SearchBar search={this.searchBooks}/>
+                    <BookList books={this.state.books} addItemToCart={this.addItemToCart} searchText={this.state.searchText}/>
               </div>
               <div className="col-3">
                 <ShoppingCart books={this.state.books} removeItemFromCart={this.removeItemFromCart}/>

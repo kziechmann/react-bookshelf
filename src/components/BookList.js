@@ -20,7 +20,7 @@ const BookList = (props) => {
                     <div className="col-md-1"> add To Cart</div>
                   </div>
                 </div>
-                   {props.books? props.books.map(book=> <Item book={book} addItemToCart={props.addItemToCart}/> ): ""}
+                   {props.books? props.books.filter(book=>JSON.stringify(book).toLowerCase().includes(props.searchText.toLowerCase())).map(book=> <Item book={book} addItemToCart={props.addItemToCart}/> ): ""}
               </div>
             </div>
           )
