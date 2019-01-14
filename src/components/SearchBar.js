@@ -6,8 +6,8 @@ class SearchBar extends Component {
     return (
           <nav className="container">
           <form>
-            <div class="form-group">
-              <label forHTML="Search"><strong>Search For A Specific Book</strong></label>
+            <div className="form-group">
+              <label htmlFor="Search"><strong>Search For A Specific Book</strong></label>
               <input type="text" className="form-control" id="SearchBar" placeholder="Enter the name of a book here...">
               </input>
             </div>
