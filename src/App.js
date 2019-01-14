@@ -37,7 +37,20 @@ class App extends Component {
   searchBooks = (event) => {
     const newState = {...this.state}
     newState['searchText'] = event.target.value
-    console.log(event.target.value)
+    this.setState(newState)
+  }
+
+  sortByAuthor = (event) => {
+    event.preventDefault()
+    const newState = {...this.state}
+    newState.books = this.state.books.sort((book1, book2)=> (book1.author < book2.author) ? -1 : (book1.author < book2.author) ? 1 : 0 )
+    this.setState(newState)
+  }
+
+  sortByTitle = (event) => {
+    event.preventDefault()
+    const newState = {...this.state}
+    newState.books = this.state.books.sort((book1, book2)=> (book1.title < book2.title) ? -1 : (book1.title < book2.title) ? 1 : 0 )
     this.setState(newState)
   }
 
@@ -45,7 +58,7 @@ class App extends Component {
     return (<div className="row">
               <div className="col-9">
                     <SearchBar search={this.searchBooks}/>
-                    <BookList books={this.state.books} addItemToCart={this.addItemToCart} searchText={this.state.searchText}/>
+                    <BookList books={this.state.books} addItemToCart={this.addItemToCart} searchText={this.state.searchText} sortByTitle={this.sortByTitle} sortByAuthor={this.sortByAuthor}/>
               </div>
               <div className="col-3">
                 <ShoppingCart books={this.state.books} removeItemFromCart={this.removeItemFromCart}/>
